@@ -9,9 +9,14 @@ public class Account {
     }
     @Step("Проверка имени для эмбоссирования")
     public boolean checkNameToEmboss() {
-        boolean isLengthValid = name.length() <= 19 && name.length() >= 3;
-        boolean isSpaceOne = name.indexOf(' ') == name.lastIndexOf(' ');
-        boolean isEndSpacesNotExist = name.indexOf(' ') > 0 && name.indexOf(' ') + 1 != name.length();
-        return isLengthValid && isSpaceOne && isEndSpacesNotExist;
+        try{
+            boolean isLengthValid = name.length() <= 19 && name.length() >= 3;
+            boolean isSpaceOne = name.indexOf(' ') == name.lastIndexOf(' ');
+            boolean isEndSpacesNotExist = name.indexOf(' ') > 0 && name.indexOf(' ') + 1 != name.length();
+            return isLengthValid && isSpaceOne && isEndSpacesNotExist;
+        }
+        catch (NullPointerException e){
+            return false;
+        }
     }
 }

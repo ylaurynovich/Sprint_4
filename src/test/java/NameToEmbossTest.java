@@ -38,6 +38,10 @@ public class NameToEmbossTest {
                 {"ТимотиШаламе", false},
                 // два пробела в центре
                 {"Ти моти Шаламе", false},
+                // пустая строка
+                {"", false},
+                // null
+                {null, false},
         };
     }
 
