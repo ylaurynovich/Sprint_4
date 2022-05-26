@@ -1,3 +1,4 @@
+import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,8 +38,6 @@ public class NameToEmbossTest {
                 {"ТимотиШаламе", false},
                 // два пробела в центре
                 {"Ти моти Шаламе", false},
-
-
         };
     }
 

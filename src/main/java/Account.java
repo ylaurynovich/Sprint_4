@@ -1,3 +1,5 @@
+import io.qameta.allure.Step;
+
 public class Account {
 
     private final String name;
@@ -5,19 +7,11 @@ public class Account {
     public Account(String name) {
         this.name = name;
     }
-
+    @Step("Проверка имени для эмбоссирования")
     public boolean checkNameToEmboss() {
-        // если в строке не меньше 3 и не больше 19 символов включительно
-        if (name.length() >= 3 && name.length() <= 19) {
-            int space_qnt = (int) name.chars().filter(character -> character == ' ').count();
-            //если в строке только один пробел
-            if (space_qnt == 1) {
-                // если пробел стоит не в начале и не в конце строки
-                if (name.charAt(0) != ' ' && name.charAt(name.length() - 1) != ' ') {
-                    return true;
-                }
-            }
-        }
-        return false;
+        boolean isLengthValid = name.length() <= 19 && name.length() >= 3;
+        boolean isSpaceOne = name.indexOf(' ') == name.lastIndexOf(' ');
+        boolean isEndSpacesNotExist = name.indexOf(' ') > 0 && name.indexOf(' ') + 1 != name.length();
+        return isLengthValid && isSpaceOne && isEndSpacesNotExist;
     }
 }
